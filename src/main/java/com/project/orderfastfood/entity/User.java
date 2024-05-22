@@ -15,12 +15,23 @@ import lombok.Setter;
 public class User {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "username",nullable = false)
     private String username;
+    @Column(name = "password",nullable = false)
     private String password;
+    @Column(name = "email")
     private String email;
+    @Column(name = "phone")
     private String phone;
-    private int role;
-    private int status;
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "role_id",nullable = false)
+//    private Role role;
+    @Column(name = "role_id" ,columnDefinition = "INT")
+    @Enumerated(EnumType.ORDINAL)
+    private Role role;
+    @Column(name = "status_id" ,columnDefinition = "INT")
+    @Enumerated(EnumType.ORDINAL)
+    private Status status;
 }

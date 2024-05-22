@@ -15,14 +15,19 @@ import lombok.Setter;
 public class Order {
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id",nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     User user;
+    @Column(name = "order_date")
     String orderDate;
-    String deliveryDate;
+    @Column(name = "address")
     String deliveryAddress;
-    int status;
+    @Column(name = "total")
     float total;
+    @Column(name = "status_id" ,columnDefinition = "INT")
+    @Enumerated(EnumType.ORDINAL)
+    private Status status;
 
 }

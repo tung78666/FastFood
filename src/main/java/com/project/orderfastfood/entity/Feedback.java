@@ -11,9 +11,10 @@ import java.util.Date;
 @Setter
 @Entity
 @Table(name = "feedback")
-public class feedback {
+public class Feedback {
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "order_id", nullable = false)
@@ -21,7 +22,10 @@ public class feedback {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", nullable = false)
     User user;
+    @Column(name = "title", nullable = false)
     String title;
+    @Column(name = "content")
     String content;
+    @Column(name = "post_date")
     Date post_date;
 }

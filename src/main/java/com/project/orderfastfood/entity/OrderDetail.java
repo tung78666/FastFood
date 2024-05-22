@@ -15,6 +15,7 @@ import lombok.Setter;
 public class OrderDetail {
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "order_id", nullable = false)
@@ -22,5 +23,6 @@ public class OrderDetail {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "food_id", nullable = false)
     Food food;
+    @Column(name = "quantity", nullable = false)
     int quantity;
 }

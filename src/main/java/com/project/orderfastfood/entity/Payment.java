@@ -11,9 +11,10 @@ import java.util.Date;
 @Setter
 @Entity
 @Table(name = "payment")
-public class payment {
+public class Payment {
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "order_id",nullable = false)
