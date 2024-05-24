@@ -11,21 +11,14 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "food")
-public class Food {
+@Table(name = "category")
+public class Category {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-    @Column(name = "name", nullable = false)
+    @Column(name = "name")
     String name;
     @Column(name = "description")
     String description;
-    @Column(name = "price", nullable = false)
-    double price;
-    @Column(name = "img")
-    String img;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "category_id", nullable = false)
-    Category category;
 }
